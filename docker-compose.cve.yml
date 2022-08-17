@@ -1,0 +1,19 @@
+version: "2"
+
+services:
+
+  cdk-1:
+    build: '1/.'
+    command: '1'
+    entrypoint: /security/parse-cve.sh
+    volumes:
+      - ./cve-reports:/cve-reports
+      - ./scripts/parse-cve.sh:/security/parse-cve.sh
+
+  cdk-2:
+    build: '2/.'
+    command: '2'
+    entrypoint: /security/parse-cve.sh
+    volumes:
+      - ./cve-reports:/cve-reports
+      - ./scripts/parse-cve.sh:/security/parse-cve.sh
