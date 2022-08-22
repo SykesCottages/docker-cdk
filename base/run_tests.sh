@@ -2,6 +2,7 @@
 
 itShouldCheckThatAllInstalledSoftwareExists() {
     doesCommandExist aws
+    doesCommandExist docker
 }
 
 doesCommandExist() {
