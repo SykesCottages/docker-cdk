@@ -1,4 +1,4 @@
-FROM sykescottages/node
+FROM sykescottages/cdk:base
 
 RUN npm install -g aws-cdk@2.38.1
 

@@ -8,6 +8,9 @@ LATEST_VERSION=2
 # You need to provide your own creds because #security
 docker login
 
+docker build --no-cache -t sykescottages/cdk:base base
+docker push sykescottages/cdk:base
+
 VERSIONS=( 1 2 )
 for VERSION in "${VERSIONS[@]}"
 do
