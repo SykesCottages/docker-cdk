@@ -6,6 +6,31 @@ We use a variety of CDK containers at Sykes Cottages across most of our platform
 All of our CDK images are based off the [Base Sykes](https://github.com/SykesCottages/docker-base) image which uses the official Ubuntu Docker image.
 We opted for this path to utilise aptitude so we could manage packages easier and utilise the package integrity verification that comes with apititude.
 
+## Pre-Installed
+All images contain Docker and the AWS CLI to support various CDK features. 
+
+### AWS CLI
+For the AWS CLI features you will need to define your AWS credentials by passing them to the container via the `.aws` mounts e.g.
+```shell
+docker run \
+    -v ~/.aws/credentials:/root/.aws/credentials \
+    -v ~/.aws/config:/root/.aws/config \
+    sykescottages/cdk:latest \
+    aws sts get-caller-identity
+```
+The mounting user can be variable depending on what user you run the container with.
+
+### Docker
+
+CDK allows you to build docker images for ECR repositories and to utilise this you will need docker available.
+As you can't run docker directly within a container you will need to pass the docker sock to the container through a volume e.g.
+```shell
+docker run \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    sykescottages/cdk:latest \
+    docker --version
+```
+
 ## Supported versions and available tags
 
 - 1.168.0 (Maintenance) - `sykescottages/cdk:1`
@@ -20,7 +45,12 @@ docker pull sykescottages/cdk:version
 
 Running a container:
 ```
-docker run -it sykescottages/cdk:version
+docker run -it \
+    -v ~/.aws/credentials:/root/.aws/credentials \
+    -v ~/.aws/config:/root/.aws/config \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    --privileged \
+     sykescottages/cdk:latest --version
 ```
 
 Building from this image simply reference it as part of your Dockerfile:
