@@ -5,6 +5,12 @@ LATEST_VERSION=2
 # Validate the container passes our tests
 ./test.sh
 
+if [ $? -ne 0 ]; then
+  echo "Tests failed: Cannot build and push images, please fix the errors."
+  exit 1
+fi
+
+
 # You need to provide your own creds because #security
 docker login
 

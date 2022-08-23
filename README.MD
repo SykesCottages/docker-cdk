@@ -7,7 +7,7 @@ All of our CDK images are based off the [Base Sykes](https://github.com/SykesCot
 We opted for this path to utilise aptitude so we could manage packages easier and utilise the package integrity verification that comes with apititude.
 
 ## Pre-Installed
-All images contain Docker and the AWS CLI to support various CDK features. 
+All images contain JQ, Docker and the AWS CLI to support various CDK features. 
 
 ### AWS CLI
 For the AWS CLI features you will need to define your AWS credentials by passing them to the container via the `.aws` mounts e.g.
@@ -29,6 +29,16 @@ docker run \
     -v /var/run/docker.sock:/var/run/docker.sock \
     sykescottages/cdk:latest \
     docker --version
+```
+
+### JQ
+
+The addition of JQ was to expand on the AWS CLI's version of JQ which is limited.
+
+```shell
+docker run \
+    sykescottages/cdk:latest \
+    jq --version
 ```
 
 ## Supported versions and available tags

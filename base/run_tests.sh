@@ -3,6 +3,7 @@
 itShouldCheckThatAllInstalledSoftwareExists() {
     doesCommandExist aws
     doesCommandExist docker
+    doesCommandExist jq
 }
 
 doesCommandExist() {
