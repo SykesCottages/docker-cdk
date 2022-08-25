@@ -71,6 +71,23 @@ FROM sykescottages/cdk:version
 # ... Your configuration
 ```
 
+### Docker Compose
+
+```yaml
+version: '3'
+
+services:
+    cdk:
+        image: sykescottages/cdk:latest
+        volumes:
+            - .:/code
+            - ~/.aws/credentials:/root/.aws/credentials
+            - ~/.aws/config:/root/.aws/config
+            - /var/run/docker.sock:/var/run/docker.sock
+        working_dir: /code
+        privileged: true
+```
+
 ## Testing
 
 All testing is done in the form of a SUT containers which is run by the Docker Hub (see [Automated repository tests](https://docs.docker.com/docker-hub/builds/automated-testing/) for more information) and runs a variety of shell scripts.

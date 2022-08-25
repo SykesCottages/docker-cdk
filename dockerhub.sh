@@ -10,7 +10,6 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-
 # You need to provide your own creds because #security
 docker login
 
