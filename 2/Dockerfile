@@ -1,6 +1,6 @@
 FROM sykescottages/cdk:base
 
-RUN npm install -g aws-cdk@2.51.1
+RUN npm install -g aws-cdk@2.54.0
 
 COPY entrypoint /usr/local/bin/
 
