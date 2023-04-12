@@ -44,7 +44,7 @@ docker run \
 ## Supported versions and available tags
 
 - 1.198.1 (Maintenance) - `sykescottages/cdk:1`
-- **2.72.1 (Current)** - `sykescottages/cdk:2`
+- **2.73.0 (Current)** - `sykescottages/cdk:2`
 
 ## Usage
 
