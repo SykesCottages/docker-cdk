@@ -31,8 +31,7 @@ RUN apt-get autoremove -y -q && \
     apt-get autoclean -y -q && \
     rm -rf /var/lib/apt/lists/*
 
-RUN python3 -m ensurepip --upgrade && \
-    python3 -m pip install --upgrade pip && \
+RUN python3 -m pip install --upgrade pip && \
     python3 -m pip install --upgrade virtualenv
 
 ENTRYPOINT [ "entrypoint" ]
