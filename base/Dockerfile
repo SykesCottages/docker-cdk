@@ -1,4 +1,4 @@
-FROM sykescottages/node:18
+FROM sykescottages/node:latest
 
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
     unzip awscliv2.zip && \
@@ -6,11 +6,14 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
 
 RUN apt-get update && \
     apt-get install -y  \
-    ca-certificates \
-    curl \
-    gnupg \
-    lsb-release \
-    jq
+        ca-certificates \
+        curl \
+        gnupg \
+        lsb-release \
+        jq \
+        python3 \
+        python3-pip \
+        python-is-python3
 
 RUN mkdir -p /etc/apt/keyrings && \
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
@@ -27,5 +30,9 @@ RUN apt-get update && \
 RUN apt-get autoremove -y -q && \
     apt-get autoclean -y -q && \
     rm -rf /var/lib/apt/lists/*
+
+RUN python3 -m ensurepip --upgrade && \
+    python3 -m pip install --upgrade pip && \
+    python3 -m pip install --upgrade virtualenv
 
 ENTRYPOINT [ "entrypoint" ]
