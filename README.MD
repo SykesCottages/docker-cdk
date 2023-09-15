@@ -46,6 +46,11 @@ docker run \
 - 1.203.0 (Deprecated) - `sykescottages/cdk:1`
 - **2.93.0 (Current)** - `sykescottages/cdk:2`
 
+## Image Itinerary
+
+For better visibility of packages there is now an included aptitude itinerary with each tag, this is located in the corresponding folder to the tag.
+This will give better clarity on package version changes and be reflected in the git history.
+
 ## Usage
 
 Pulling an image:
