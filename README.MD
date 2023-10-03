@@ -44,7 +44,7 @@ docker run \
 ## Supported versions and available tags
 
 - 1.203.0 (Deprecated) - `sykescottages/cdk:1`
-- **2.96.2 (Current)** - `sykescottages/cdk:2`
+- **2.99.1 (Current)** - `sykescottages/cdk:2`
 
 ## Image Itinerary
 
