@@ -1,6 +1,6 @@
 #!/bin/sh
 
-CDK_VERSION=2.103.1
+CDK_VERSION=2.104.0
 
 itShouldCheckThatAllInstalledSoftwareExists() {
     doesCommandExist cdk
