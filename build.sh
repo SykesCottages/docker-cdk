@@ -3,12 +3,21 @@
 VERSION=$1
 LATEST_VERSION=$2
 
-docker build --no-cache -t sykescottages/cdk:${VERSION} $VERSION
-docker push sykescottages/cdk:${VERSION}
+docker buildx build \
+  --platform linux/amd64,linux/arm64,linux/arm/v7,linux/arm64/v8 \
+  --quiet \
+  --no-cache \
+  --push \
+  -t sykescottages/cdk:${VERSION} \
+  $VERSION
+
 # Tagging latest version
 if [[ "$LATEST_VERSION" == "$VERSION" ]]; then
-  docker tag sykescottages/cdk:${VERSION} sykescottages/cdk:latest
-  docker push sykescottages/cdk:latest
-  docker rmi sykescottages/cdk:latest
+  docker buildx build \
+    --platform linux/amd64,linux/arm64,linux/arm/v7,linux/arm64/v8 \
+    --quiet \
+    --no-cache \
+    --push \
+    -t sykescottages/cdk:latest \
+    $VERSION
 fi
-docker rmi sykescottages/cdk:${VERSION}

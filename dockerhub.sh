@@ -7,6 +7,8 @@ docker login >> /dev/null 2>&1
 
 ./build-base.sh >> /dev/null 2>&1
 
+wait
+
 VERSIONS=( 1 2 )
 for VERSION in "${VERSIONS[@]}"
 do
@@ -14,5 +16,3 @@ do
 done
 
 wait
-
-docker rmi sykescottages/cdk:base >> /dev/null 2>&1
