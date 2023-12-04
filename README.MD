@@ -41,6 +41,24 @@ docker run \
     jq --version
 ```
 
+## Architecture Support
+
+All our images have support for:
+- `linux/amd64`
+- `linux/arm64/v8`
+
+Obtaining platform specific architectures:
+
+```shell
+docker pull --platform=<ARCHITECTURE> sykescottages/cdk:<VERSION>
+```
+
+Testing you have the right architecture:
+
+```shell
+docker run -it --platform=<ARCHITECTURE> sykescottages/cdk:<VERSION> arch
+```
+
 ## Supported versions and available tags
 
 - 1.203.0 (Deprecated) - `sykescottages/cdk:1`
