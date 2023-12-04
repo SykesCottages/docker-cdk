@@ -11,7 +11,7 @@ docker manifest create $TAG \
   --amend "$TAG-arm64"
 docker manifest push $TAG
 
-VERSIONS=($(find . -type d -regex '.*/[0-9]+' | sort | sed 's/\.\///'))
+VERSIONS=("1" "2")
 for VERSION in "${VERSIONS[@]}"; do
   TAG="sykescottages/cdk:${VERSION}"
   docker manifest create $TAG \
