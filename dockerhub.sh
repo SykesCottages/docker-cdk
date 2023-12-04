@@ -15,14 +15,13 @@ else
 fi
 
 TAG="sykescottages/cdk:base-${ARCH}"
-docker build --quiet --no-cache -t $TAG --build-arg ARCH=$ARCH base
-docker push $TAG
+docker build --quiet --no-cache -t $TAG --build-arg ARCH=$ARCH base >> /dev/null 2>&1
+docker push $TAG >> /dev/null 2>&1
 
 VERSIONS=($(find . -type d -regex '.*/[0-9]+' | sort | sed 's/\.\///'))
 for VERSION in "${VERSIONS[@]}"
 do
-  ./build.sh $VERSION $ARCH
-   #>> /dev/null 2>&1 &
+  ./build.sh $VERSION $ARCH >> /dev/null 2>&1 &
 done
 
 wait
