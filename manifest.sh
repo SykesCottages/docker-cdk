@@ -14,6 +14,7 @@ docker manifest push $TAG
 VERSIONS=("1" "2")
 for VERSION in "${VERSIONS[@]}"; do
   TAG="sykescottages/cdk:${VERSION}"
+  docker manifest rm $TAG
   docker manifest create $TAG \
     --amend "$TAG-amd64" \
     --amend "$TAG-arm64"
