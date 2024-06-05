@@ -12,7 +12,7 @@ RUN apt-get update && \
         gnupg \
         lsb-release \
         jq \
-        python3 \
+        python3.11 \
         python3-pip \
         python-is-python3
 
