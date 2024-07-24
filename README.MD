@@ -62,7 +62,7 @@ docker run -it --platform=<ARCHITECTURE> sykescottages/cdk:<VERSION> arch
 ## Supported versions and available tags
 
 - 1.203.0 (Deprecated) - `sykescottages/cdk:1`
-- **2.146.0 (Current)** - `sykescottages/cdk:2`
+- **2.150.0 (Current)** - `sykescottages/cdk:2`
 
 ## Image Itinerary
 
