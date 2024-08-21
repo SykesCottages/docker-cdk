@@ -97,8 +97,6 @@ FROM sykescottages/cdk:version
 ### Docker Compose
 
 ```yaml
-version: '3'
-
 services:
     cdk:
         image: sykescottages/cdk:latest
