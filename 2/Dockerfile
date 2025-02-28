@@ -1,7 +1,7 @@
 ARG ARCH=amd64
 FROM sykescottages/cdk:base-$ARCH
 
-RUN npm install -g aws-cdk@2.164.1
+RUN npm install -g aws-cdk@2.1001.0
 
 COPY entrypoint /usr/local/bin/
 
